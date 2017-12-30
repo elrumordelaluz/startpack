@@ -21,7 +21,7 @@
   "author": "Lionel T <elrumordelaluz@hotmail.com> (https://elrumordelaluz.com/)",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --open --quiet",
     "build": "rimraf dist && webpack -p"
   }
 }
