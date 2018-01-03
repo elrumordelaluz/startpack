@@ -18,7 +18,7 @@ module.exports = {
         }),
       },
       {
-        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        test: /\.(woff|woff2)$/,
         loader: 'file-loader?name=public/fonts/[name].[ext]',
       },
       {
@@ -30,13 +30,17 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.pug/,
+        use: [{ loader: 'html-loader' }, { loader: 'pug-html-loader' }],
+      },
     ],
   },
   plugins: [
     new ExtractTextPlugin('styles.css'),
     new CopyWebpackPlugin([{ from: './src/images', to: 'images' }]),
     new HtmlWebpackPlugin({
-      template: 'src/index.html',
+      template: 'src/index.pug',
     }),
   ],
 }
