@@ -1,7 +1,7 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-
+const DEBUG = process.env.NODE_ENV !== 'production'
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -37,7 +37,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new ExtractTextPlugin('styles.css'),
+    new ExtractTextPlugin(`styles${DEBUG ? '' : '.[contenthash]'}.css`),
     new CopyWebpackPlugin([{ from: './src/images', to: 'images' }]),
     new HtmlWebpackPlugin({
       template: 'src/index.pug',

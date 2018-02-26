@@ -25,6 +25,6 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --open --quiet",
-    "build": "rimraf dist && webpack -p"
+    "build": "rimraf dist && NODE_ENV=production webpack -p"
   }
 }
